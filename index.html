@@ -51,12 +51,14 @@
         const greetingMessage = document.getElementById('greetingMessage');
         const colorSection = document.getElementById('color');
 
-        function toggleVisibility(element) {
-            if (element.classList.contains('hidden')) {
-                element.classList.remove('hidden');
-            } else {
-                element.classList.add('hidden');
-            }
+        function toggleVisibility(elementArray) {
+            elementArray.forEach(element => {
+                if (element.classList.contains('hidden')) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
         }
 
         nameInput.addEventListener('input', function() {
@@ -70,10 +72,8 @@
 
         nameNext.addEventListener('click', function() {
             var name = nameInput.value;
-            toggleVisibility(nameSection);
             greetingMessage.innerHTML = "Nice to meet you, " + name + "!";
-            toggleVisibility(greeting);
-            toggleVisibility(color);
+            toggleVisibility([nameSection, greeting, colorSection]);
         });
     </script>
 </body>
