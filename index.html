@@ -3,6 +3,19 @@
 <title> </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./styles.css">
+<style>
+    nav.red {
+        background: #e53935;
+    }
+    
+    nav.green {
+        background: #43a047;
+    }
+    
+    nav.blue {
+        background: #1e88e5;
+    }
+</style>
 
 <body>
     <nav>
@@ -15,8 +28,23 @@
         </label>
         <button id="nameNext" disabled>Next</button>
     </section>
+    <section id="greeting" class="hidden">
+        <p id="greetingMessage">Nice to meet you, Name!</p>
+    </section>
+    <section id="color" class="hidden">
+        <label>
+            What is your favorite color?
+        </label>
+        <button class="colorSelect" id="red">Red</button>
+        <button class="colorSelect" id="green">Green</button>
+        <button class="colorSelect" id="blue">Blue</button>
+    </section>
+    <section id="response" class="hidden">
+        <p id="responseMessage">I love color too! Let me change something for you.</p>
+    </section>
 
-
+    <script>
+    </script>
 </body>
 
 </html>
