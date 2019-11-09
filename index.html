@@ -46,6 +46,18 @@
     <script>
         const nameInput = document.getElementById('nameInput');
         const nameNext = document.getElementById('nameNext');
+        const nameSection = document.getElementById('name');
+        const greeting = document.getElementById('greeting');
+        const greetingMessage = document.getElementById('greetingMessage');
+        const colorSection = document.getElementById('color');
+
+        function toggleVisibility(element) {
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
 
         nameInput.addEventListener('input', function() {
             var value = this.value;
@@ -54,6 +66,14 @@
             } else {
                 nameNext.removeAttribute('disabled');
             }
+        });
+
+        nameNext.addEventListener('click', function() {
+            var name = nameInput.value;
+            toggleVisibility(nameSection);
+            greetingMessage.innerHTML = "Nice to meet you, " + name + "!";
+            toggleVisibility(greeting);
+            toggleVisibility(color);
         });
     </script>
 </body>
