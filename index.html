@@ -44,6 +44,17 @@
     </section>
 
     <script>
+        const nameInput = document.getElementById('nameInput');
+        const nameNext = document.getElementById('nameNext');
+
+        nameInput.addEventListener('input', function() {
+            var value = this.value;
+            if (value == undefined || value == '') {
+                nameNext.setAttribute('disabled', '');
+            } else {
+                nameNext.removeAttribute('disabled');
+            }
+        });
     </script>
 </body>
 
