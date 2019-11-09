@@ -50,6 +50,10 @@
         const greeting = document.getElementById('greeting');
         const greetingMessage = document.getElementById('greetingMessage');
         const colorSection = document.getElementById('color');
+        const nav = document.querySelector('nav');
+        const colorSelections = document.querySelectorAll('.colorSelect');
+        const responseSection = document.getElementById('response');
+        const responseMessage = document.getElementById('responseMessage');
 
         function toggleVisibility(elementArray) {
             elementArray.forEach(element => {
@@ -59,6 +63,14 @@
                     element.classList.add('hidden');
                 }
             });
+        }
+
+        function changeColor(color) {
+            nav.classList = "";
+            nav.classList.add(color);
+            if (responseSection.classList.contains('hidden')) {
+                toggleVisibility([responseSection]);
+            }
         }
 
         nameInput.addEventListener('input', function() {
@@ -75,6 +87,14 @@
             greetingMessage.innerHTML = "Nice to meet you, " + name + "!";
             toggleVisibility([nameSection, greeting, colorSection]);
         });
+
+        colorSelections.forEach(color => {
+            color.addEventListener('click', function() {
+                const selectedColor = this.id;
+                changeColor(selectedColor);
+                responseMessage.innerHTML = "I love " + selectedColor + " too! Let me change the header to " + selectedColor + ".";
+            });
+        })
     </script>
 </body>
 
